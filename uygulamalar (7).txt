@@ -1,0 +1,59 @@
+<?php
+  function normalTopla($sayi) {	// normal yolla parametre alan fonksiyon.
+    $sayi = $sayi + 10;	// sayiya 10 ekleniyor.
+  }
+
+  function refleTopla(&$sayi) {	// referans ile parametre alan fonksiyon.
+    $sayi = $sayi + 10;	// sayiya 10 ekleniyor.
+  }
+
+  $x = 10;	
+  normalTopla($x);	// normal yolla toplayan fonksiyon çaðýrýlýyor.
+  echo "x : ".$x."\n";
+
+  $y = 10;
+  refleTopla($y);	// referans yoluyla toplayan fonksiyon çaðýrýlýyor.
+  echo "y : ".$y;
+
+
+
+
+//////////////////////////////////
+
+
+<?php
+
+function degerlerToplami($sayilar)	// dizi olarak parametre alan fonksiyon.
+{
+  $toplam = 0;	// degerlerin toplamini tutan degisken.
+
+  foreach ($sayilar as $sayi){	// diziyi gezecek foreach döngüsü.
+    $toplam += $sayi;		// her eleman toplanýyor.
+  }
+
+  return $toplam;	// toplam sonuç olarak dönüyor.
+}
+
+$sayilar = array(1,2,3,4,5,6,7,8,9);	// dizi olusturuluyor.
+$sonuc = degerlerToplami($sayilar);	// dizi sonucu hesaplandi.
+echo 'Toplam sonucu = '.$sonuc;
+
+/////////////////////////////////
+
+<?php
+function diziIkiyleCarp(&$sayilar)	// parametre olarak dizinin referansýný alan fonksiyon.
+{
+   for ($i=0; $i<count($sayilar); $i++) {	// diziyi gezen for döngüsü.
+    $sayilar[$i] = $sayilar[$i] * 2;		// dizi elemanlari 2 ile çarpýlýyor.
+  }
+}
+
+$sayilar = array(1,2,3,4,5,6,7,8,9);	// dizi oluþturuluyor.
+
+echo "Dizi ilk hali :\n";	
+print_r($sayilar);	// dizinin baslangic hali.
+
+diziIkiyleCarp($sayilar);	// diziyi ikiyle carpacak fonksiyon.
+
+echo "Dizi son hali :\n";	// dizinin son hali.
+print_r($sayilar);
